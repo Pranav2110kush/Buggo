@@ -12,7 +12,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/aztecrabbit/bugscanner-go/pkg/queuescanner"
+	"github.com/LamonLind/bugscanner-go/pkg/queuescanner"
 	"github.com/fatih/color"
 	"github.com/spf13/cobra"
 )
@@ -117,10 +117,10 @@ func scanDirect(c *queuescanner.Ctx, p *queuescanner.QueueScannerScanParams) {
 			switch hServerLower {
 			case "cloudflare":
 				resColor = colorG1
-			case "akamaighost":
-				resColor = colorY1
+			case "varnish":
+				resColor = colorG1
 			case "cloudfront":
-				resColor = colorC1
+				resColor = colorY1
 			default:
 				resColor = colorW1
 			}
@@ -182,6 +182,15 @@ func scanDirectRun(cmd *cobra.Command, args []string) {
 			"cloudflare",
 			"cloudfront",
 			"akamaighost",
+			"varnish",
+			"sffe",
+			"aws",
+			"Varnish",
+			"google",
+			"volt-adc",
+			"BunnyCDN-IN1-1196",
+			"BunnyCDN-PER1-1139",
+			"BunnyCDN",
 		}
 	} else {
 		serverList = strings.Split(scanDirectFlagServerListLower, ",")
